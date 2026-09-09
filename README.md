@@ -52,4 +52,7 @@ npm test
 
 ## 👥 Contributors
 * **Ethan Mearns** - [GitHub Profile](https://github.com/Zaphod625)
-* *(Add your group members here)*
+* **Byron Norval**
+* **Arno Meyer**
+* **Elizabeth Vorster**
+* **Nastasha van der Sandt**
