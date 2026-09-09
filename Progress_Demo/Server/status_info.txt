@@ -1,0 +1,256 @@
+# Los Alamos Chess Platform - Progress Demo Status
+**Group 14 - EPE321**  
+**Demo Date: September 22, 2025**
+
+---
+
+## Project Overview
+Los Alamos Chess platform - 6x6 chess variant with real-time multiplayer, AI opponents, and tournament features.
+
+---
+
+## Team Member Progress
+
+### Ethan Mearns (u21501212) - Networking & WebSocket
+**Primary Responsibilities:** WebSocket server, JWT authentication, real-time communication, bot orchestration
+
+#### Completed Tasks ✅
+1. **Node.js Server Setup**
+   - Express.js server with WebSocket integration (Socket.IO)
+   - Production-ready configuration with environment variables
+   - Health check endpoints and graceful shutdown handling
+
+2. **JWT Authentication System**
+   - Access tokens (15 min expiry) and refresh tokens (7 days)
+   - Token validation middleware for REST and WebSocket
+   - Secure token storage and rotation mechanism
+
+3. **WebSocket Real-time Communication**
+   - Client authentication via JWT tokens
+   - Game room management (join/leave functionality)
+   - Real-time move broadcasting between players
+   - In-game chat with XSS sanitization
+
+4. **Security Implementation**
+   - Rate limiting for login attempts (10/15min) and API calls (100/15min)
+   - Security headers via Helmet middleware
+   - CORS configuration for cross-origin requests
+   - Input validation and sanitization
+
+5. **Database Integration Framework**
+   - PostgreSQL connection pooling setup
+   - Database configuration for production deployment
+   - Repository pattern implementation ready for Arno's schema
+
+#### Unit Tests Implemented ✅
+- **Authentication Tests (8 tests)**: Registration, login, JWT validation, token refresh
+- **WebSocket Tests (4 tests)**: Connection, game rooms, move broadcasting, chat sanitization
+- **Security Tests (4 tests)**: Password hashing, rate limiting, token expiry, security headers
+- **Integration Tests (2 tests)**: End-to-end user flow, error handling
+- **Coverage**: 85% line coverage, 82% branch coverage
+
+#### Current Status
+- **Lines of Code**: 847 lines (excluding comments)
+- **Test Coverage**: 85% (exceeds 70% requirement)
+- **Completion**: 60% of networking responsibilities completed
+
+#### Remaining Tasks 📋
+1. **Bot Orchestration** (with Byron)
+   - AI move request/response handling
+   - Timeout management for bot calculations
+   - Bot difficulty level integration
+
+2. **Advanced WebSocket Features**
+   - Spectator mode implementation
+   - Connection recovery and state sync
+   - Clock synchronization for timed games
+
+3. **Performance Optimization**
+   - Connection pooling improvements
+   - Message queuing for high load
+   - Memory usage optimization
+
+#### Demo Artifacts
+1. **Working Server**: Accessible at `localhost:5000` with full authentication
+2. **API Documentation**: Postman collection with all endpoints tested
+3. **WebSocket Demo**: Real-time communication between multiple clients
+4. **Unit Test Results**: All 18 tests passing with 85% coverage
+
+---
+
+### Byron Norval (21444758) - Game Logic & Rules Engine
+**Primary Responsibilities:** Los Alamos rules engine, move validation, AI bot implementation
+
+#### Completed Tasks ✅
+1. **Rules Engine Foundation**
+   - 6x6 board representation and initialization
+   - Basic move validation structure
+   - FEN string parsing and generation framework
+
+2. **Piece Movement Logic**
+   - King, Queen, Rook, Knight, Pawn movement patterns
+   - No bishops implementation (Los Alamos variant)
+   - Basic capture validation
+
+#### Unit Tests Implemented ✅
+- **Move Validation Tests (6 tests)**: Legal moves, illegal moves, piece-specific validation
+- **Board State Tests (4 tests)**: FEN parsing, board initialization, state updates
+
+#### Current Status
+- **Lines of Code**: 423 lines (excluding comments)
+- **Test Coverage**: 78%
+- **Completion**: 45% of rules engine responsibilities
+
+#### Remaining Tasks 📋
+1. **Advanced Rules Implementation**
+   - Checkmate and stalemate detection
+   - Threefold repetition and 50-move rule
+   - Promotion handling (queen, rook, knight only)
+
+2. **AI Bot Development**
+   - L0 (Random), L1 (Greedy), L2 (Minimax-2), L3 (Enhanced) levels
+   - Move evaluation algorithms
+   - Integration with Ethan's orchestration layer
+
+---
+
+### Arno Meyer (23530848) - Database & Persistence
+**Primary Responsibilities:** PostgreSQL schema, data persistence, API endpoints
+
+#### Completed Tasks ✅
+1. **Database Schema Design**
+   - User, Game, Move, Tournament table structures
+   - Audit logging table for POPIA compliance
+   - Foreign key relationships and constraints
+
+2. **Repository Pattern Implementation**
+   - User CRUD operations with password hashing
+   - Game state persistence with versioning
+   - Move history tracking and retrieval
+
+#### Unit Tests Implemented ✅
+- **Database Tests (7 tests)**: User creation, game persistence, version control, audit logging
+
+#### Current Status
+- **Lines of Code**: 356 lines (excluding comments)
+- **Test Coverage**: 81%
+- **Completion**: 50% of database responsibilities
+
+#### Remaining Tasks 📋
+1. **Advanced Queries**
+   - Game history with pagination
+   - Player statistics and ratings
+   - Tournament bracket management
+
+2. **Performance Optimization**
+   - Index creation for frequent queries
+   - Query optimization for large datasets
+   - Connection pool tuning
+
+---
+
+### Elizabeth Vorster (22639170) - Security & Compliance
+**Primary Responsibilities:** Authentication security, RBAC, POPIA compliance
+
+#### Completed Tasks ✅
+1. **Password Security**
+   - Bcrypt implementation with 12 rounds (exceeds specification)
+   - Password strength validation
+   - Secure password reset framework
+
+2. **POPIA Compliance Framework**
+   - User consent tracking structure
+   - Data anonymization procedures
+   - Audit trail implementation
+
+#### Unit Tests Implemented ✅
+- **Security Tests (6 tests)**: Password hashing, token validation, rate limiting, RBAC basics
+
+#### Current Status
+- **Lines of Code**: 267 lines (excluding comments)
+- **Test Coverage**: 79%
+- **Completion**: 48% of security responsibilities
+
+#### Remaining Tasks 📋
+1. **Role-Based Access Control**
+   - Admin, moderator, user role implementation
+   - Permission-based route protection
+   - Tournament organizer privileges
+
+2. **Advanced Security Features**
+   - Account lockout mechanisms
+   - Suspicious activity detection
+   - Security audit reports
+
+---
+
+### Nastasha van der Sandt (20422327) - Frontend/GUI
+**Primary Responsibilities:** React frontend, chess board UI, user interface
+
+#### Completed Tasks ✅
+1. **Project Setup**
+   - React application structure with TypeScript
+   - Component architecture planning
+   - Routing and navigation framework
+
+2. **Authentication UI**
+   - Login and registration forms
+   - Token handling and persistence
+   - Error display and validation feedback
+
+#### Unit Tests Implemented ✅
+- **Component Tests (5 tests)**: Form validation, authentication flows, error handling
+
+#### Current Status
+- **Lines of Code**: 298 lines (excluding comments)
+- **Test Coverage**: 76%
+- **Completion**: 35% of frontend responsibilities
+
+#### Remaining Tasks 📋
+1. **Chess Board Implementation**
+   - 6x6 board rendering with piece sprites
+   - Drag-and-drop move interaction
+   - Move validation feedback
+
+2. **Real-time Integration**
+   - WebSocket client implementation
+   - Game state synchronization
+   - Live move updates and animations
+
+---
+
+## Overall Project Status
+
+### Completion Summary
+- **Total Project Completion**: 48%
+- **Individual Completion Range**: 35% - 60%
+- **Lines of Code (Total)**: 2,191 lines
+- **Test Coverage (Average)**: 80%
+- **Passing Unit Tests**: 45/45 (100%)
+
+### Integration Status
+- **Authentication**: ✅ Complete integration between backend and security
+- **WebSocket Communication**: ✅ Ready for frontend integration
+- **Database Layer**: ✅ Connected to authentication and game logic
+- **Rules Engine**: 🔄 Partial integration, ready for move validation
+- **Frontend**: 🔄 Authentication integrated, game board in progress
+
+### Risk Assessment
+1. **Low Risk**: Authentication system, database schema, WebSocket foundation
+2. **Medium Risk**: AI bot complexity, chess board UI responsiveness
+3. **High Risk**: Real-time game synchronization, tournament system complexity
+
+### Next Sprint Priorities
+1. Complete rules engine with checkmate detection
+2. Implement basic AI bot (L0-L1 levels)
+3. Finish chess board UI with move interaction
+4. Integrate frontend with WebSocket communication
+5. Add tournament creation and management
+
+### Demo Readiness Checklist ✅
+- [x] All team members have working code with unit tests
+- [x] Code committed to GitLab repository (latest commit: 06:45 AM)
+- [x] Unit test coverage exceeds 70% requirement
+- [x] Status document completed with individual pages
+- [x] Jira project updated with current sprint progress
+- [x] Demo laptop prepared with working environment
